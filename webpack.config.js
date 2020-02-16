@@ -1,11 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  entry: ['./src/assets/js/main.js', './src/main.js'],
+  entry: ['./src/assets/js/main.js', './src/main.js', './src/assets/css/main.css'],
   output: {
     path: path.join(__dirname, 'dist/assets'),
     filename: '[name].js',
@@ -27,8 +28,24 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: path.join(__dirname, 'dist/assets/css')
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {importLoaders: 1},
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: __dirname + '/postcss.config.js'
+              }
+            }
+          }
         ]
       }
     ]
@@ -48,6 +65,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/layout/index.html',
       filename: 'index.html'
+    }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // all options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }),
