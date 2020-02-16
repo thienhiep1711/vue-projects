@@ -8,7 +8,7 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Hiep Nguyen",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
