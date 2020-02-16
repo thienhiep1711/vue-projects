@@ -8,8 +8,8 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: ['./src/assets/js/main.js', './src/main.js', './src/assets/css/main.css'],
   output: {
-    path: path.join(__dirname, 'dist/assets'),
-    filename: '[name].js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'assets/js/[name].js',
     chunkFilename: '[name]-[id].js'
   },
   module: {
@@ -31,13 +31,12 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: path.join(__dirname, 'dist/assets/css')
-            }
+              publicPath: __dirname + '/dist/assets',
+              hmr: process.env.NODE_ENV === 'development',
+              reloadAll: true,
+            },
           },
-          {
-            loader: 'css-loader',
-            options: {importLoaders: 1},
-          },
+          'css-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -51,7 +50,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'dist/layout'),
     compress: true,
     port: 8000
   },
@@ -64,12 +63,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/layout/index.html',
-      filename: 'index.html'
+      filename: 'layout/index.html'
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: '[name].css',
+      filename: 'assets/css/[name].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
