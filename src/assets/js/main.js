@@ -1,3 +1,5 @@
-import { select } from './lib/dom';
+import { ready } from 'lib/dom'
+import { pipe } from 'lib/utils'
+import initializeModules from 'lib/init-modules'
 
-console.log('hehe', select('h1'))
+ready(pipe(initializeModules))

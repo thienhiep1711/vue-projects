@@ -30,6 +30,11 @@ const cond = (pairs) => (...args) => {
   return undefined
 }
 
+/**
+ * Function that always returns True
+ */
+const returnTrue = () => true
+
 const ifElse = (p, fT, fF) => cond([[p, fT], [returnTrue, fF]])
 
 /**
@@ -103,6 +108,13 @@ const tryCatch = (tryer, catcher) => (...args) => {
 }
 
 /**
+ * Identity function
+ * @param {*} val
+ * @return {*}
+ */
+const identity = (val) => val
+
+/**
  * Check if an array contains an item.
  *
  * This is a curried wrapper for Array.prototype.indexOf
@@ -135,7 +147,6 @@ const parseOptions = (string, def = {}) => {
   return Object.assign({}, def, options)
 }
 
-
 export {
   curry,
   map,
@@ -152,5 +163,7 @@ export {
   lt,
   cond,
   partial,
-  ifElse
+  ifElse,
+  identity,
+  returnTrue
 }
