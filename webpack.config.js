@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  entry: './src/assets/js/main.js',
+  entry: ['./src/assets/js/main.js', './src/main.js'],
   output: {
     path: path.join(__dirname, 'dist/assets'),
     filename: '[name].js',
@@ -16,6 +16,17 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          interpolate: true
+        }
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
       },
       {
         test: /\.css$/,
