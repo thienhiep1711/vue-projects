@@ -4,7 +4,8 @@
   "description": "Base Javascript Project",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack-dev-server",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,9 +23,11 @@
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "core-js": "^3.6.4"
+    "core-js": "^3.6.4",
+    "tweezer.js": "^1.5.0"
   }
 }

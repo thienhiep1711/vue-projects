@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -25,6 +26,11 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8000
+  },
   resolve: {
     alias: {
       'lib': path.resolve(__dirname, 'src/assets/js/lib'),
@@ -33,7 +39,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/layout/index.html'
-    })
+      template: './src/layout/index.html',
+      filename: 'index.html'
+    }),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ]
 }
