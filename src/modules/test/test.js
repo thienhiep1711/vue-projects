@@ -1,3 +1,3 @@
 export default (el) => {
-  console.log('Test modules 2')
+  console.log('Test modules')
 }
