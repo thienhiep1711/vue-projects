@@ -1,3 +1,3 @@
 import { select } from './lib/dom';
 
-console.log(select('h1'))
+console.log('hehe', select('h1'))
