@@ -1,1 +1,3 @@
-console.log('Webpack is loaded')
+import { select } from './lib/dom';
+
+console.log(select('h1'))
