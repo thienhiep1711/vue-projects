@@ -46,24 +46,51 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images'
+            },
+          }
+        ]
+      },
+      {
+        test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/fonts/[name].[ext]',
+              publicPath: function(url) {
+                return url.replace(/assets/, '..')
+              },
+            },
+          }
+        ]
       }
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist/layout'),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8000
   },
   resolve: {
     alias: {
       'lib': path.resolve(__dirname, 'src/assets/js/lib'),
-      'modules': path.resolve(__dirname, 'src/modules')
+      'modules': path.resolve(__dirname, 'src/modules'),
+      'fonts': path.join(__dirname, 'src/assets/fonts')
     }
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/layout/index.html',
-      filename: 'layout/index.html'
+      filename: 'index.html'
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
