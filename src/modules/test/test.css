@@ -1,0 +1,8 @@
+:root {
+  --c-red: red;
+}
+
+.test {
+  color: var(--c-red);
+  font-size: 15px;
+}
