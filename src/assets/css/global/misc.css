@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, figure, ul, ol {
+  @mixin reset-spacing;
+}
+
+ul, ol {
+  @mixin reset-list;
+}
+
+hr {
+  @mixin reset-spacing;
+  border: none;
+  height: 1px;
+  background-color: var(--c-border);
+}
+
+.hide {
+  display: none;
+}
+
+input[type="submit"],
+a {
+  cursor: pointer;
+}
+
+[v-cloak] {
+  display: none;
+}

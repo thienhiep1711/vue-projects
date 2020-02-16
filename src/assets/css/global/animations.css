@@ -1,0 +1,6 @@
+.fade-enter-active, .fade-leave-active {
+  @mixin transition opacity;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 1;
+}

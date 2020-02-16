@@ -1,0 +1,197 @@
+@define-mixin h1 {
+  @type 40px 40px;
+  font-weight: 500;
+}
+
+@define-mixin h2 {
+  @type 30px 32px;
+}
+
+@define-mixin h3 {
+  @type 24px 26px;
+}
+
+@define-mixin h4 {
+  @type 18px 22px;
+}
+
+@define-mixin h5 {
+  @type 14px 16px;
+}
+
+@define-mixin h6 {
+  @type 13px 15px;
+}
+
+@define-mixin paragraph {
+  @type 15px 22px;
+  font-family: var(--font-sans);
+  text-transform: none;
+}
+
+@define-mixin link {
+  @type 13px 20px;
+  font-family: var(--font-sans);
+  color: var(--c-link);
+  text-decoration: underline;
+}
+
+@define-mixin label {
+  @type 11px 13px;
+  font-weight: 300;
+}
+
+@define-mixin form-input {
+  @type 15px 22px;
+  font-weight: 300;
+}
+
+@define-mixin button {
+  @type 14px 14px 1px;
+  text-decoration: none;
+}
+
+@define-mixin button-alternate {
+  @mixin button;
+}
+
+@define-mixin headline {
+  text-align: center;
+  line-height: 52px;
+}
+
+@define-mixin label-focus {
+  @type 11px 13px;
+  font-weight: 500;
+}
+
+@define-mixin form-input {
+  @type 15px 22px;
+  font-weight: 300;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: var(--font-sans);
+  color: var(--c-text);
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h1,
+.h1 {
+  @mixin h1;
+}
+
+h2,
+.h2 {
+  @mixin h2;
+}
+
+h3,
+.h3,
+.accordion__label {
+  @mixin h3;
+}
+
+h4,
+.h4 {
+  @mixin h4;
+}
+
+h5,
+.h5 {
+  @mixin h5;
+}
+
+h6,
+.h6 {
+  @mixin h6;
+}
+
+p,
+.p,
+.p a,
+.p p,
+body {
+  @mixin paragraph;
+}
+
+a,
+.link,
+.wysiwyg a,
+p a {
+  @mixin link;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.link--inline {
+  text-decoration: underline;
+}
+
+.label {
+  @mixin label;
+}
+
+.form-input,
+.input,
+.textarea,
+.select,
+.label,
+.checkbox,
+.radio {
+  @mixin form-input;
+}
+
+.button {
+  @mixin button;
+}
+
+.button--alternate {
+  @mixin button-alternate;
+}
+
+.menu-link {
+  @type 13px 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.headline {
+  @mixin headline;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-error {
+  color: var(--c-error);
+}
+
+.text-info {
+  @type 10px 12px;
+  text-transform: uppercase;
+  color: var(--c-gray-9);
+  margin-bottom: 8px;
+}
+
+.paragraph-large {
+  @type 16px 24px;
+}

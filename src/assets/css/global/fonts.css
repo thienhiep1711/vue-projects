@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Mallory';
+  src: url($('Mallory-Medium.eot' | asset_url));
+  src: url($('Mallory-Medium.eot?#iefix' | asset_url)) format('embedded-opentype'),
+    url($('Mallory-Medium.woff' | asset_url)) format('woff'),
+    url($('Mallory-Medium.ttf' | asset_url)) format('truetype'),
+    url($('Mallory-Medium.svg#Mallory-Medium' | asset_url)) format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mallory';
+  src: url($('Mallory-Light.eot' | asset_url));
+  src: url($('Mallory-Light.eot?#iefix' | asset_url)) format('embedded-opentype'),
+    url($('Mallory-Light.woff' | asset_url)) format('woff'),
+    url($('Mallory-Light.ttf' | asset_url)) format('truetype'),
+    url($('Mallory-Light.svg#Mallory-Light' | asset_url)) format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mallory';
+  src: url($('Mallory-Book.eot' | asset_url));
+  src: url($('Mallory-Book.eot?#iefix' | asset_url)) format('embedded-opentype'),
+    url($('Mallory-Book.woff' | asset_url)) format('woff'),
+    url($('Mallory-Book.ttf' | asset_url)) format('truetype'),
+    url($('Mallory-Book.svg#Mallory-Book' | asset_url)) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

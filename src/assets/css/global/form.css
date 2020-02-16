@@ -1,0 +1,57 @@
+input,
+textarea,
+select {
+  appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--c-border-input);
+  border-radius: 3px;
+  color: var(--c-form-value);
+  box-sizing: border-box;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+input,
+textarea {
+  @mixin transition;
+  padding: 0;
+
+  &::-ms-clear,
+  &::-webkit-search-cancel-button {
+    display: none !important;
+  }
+}
+
+input[type="number"] {
+  appearance: textfield;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+}
+
+textarea {
+  margin-top: 10px;
+  min-height: 150px;
+}
+
+label {
+  display: block;
+}
+
+.form__label-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+select {
+  @mixin transition;
+  padding: 0 13px;
+  appearance: none;
+  background-color: var(--c-white);
+}

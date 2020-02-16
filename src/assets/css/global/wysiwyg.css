@@ -1,0 +1,35 @@
+.wysiwyg {
+  & * {
+    margin-bottom: 0;
+    color: var(--c-text);
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & p {
+    text-transform: none;
+  }
+}
+
+.wysiwyg--page {
+  & h4:first-child {
+    margin-top: 24px;
+  }
+
+  & h4:not(:first-child) {
+    padding-top: 24px;
+    margin-top: 24px;
+    border-top: 1px solid var(--c-gray);
+  }
+
+  & h4 {
+    margin-bottom: 7px;
+  }
+
+  & h5 {
+    margin: 24px 0 6px;
+  }
+}

@@ -1,0 +1,91 @@
+/*
+** Section bottom line
+*/
+
+.grid {
+  @mixin flex-horizontal stretch, flex-start;
+  @mixin grid-gutter;
+  @mixin grid --ml, 32px;
+}
+
+.grid__item {
+  @mixin cell-responsive;
+  @mixin cell-responsive --ml, 32px;
+  width: 100%;
+}
+
+.grid--sub-links {
+  @mixin grid --ml, 16px;
+  @mixin grid --l, 32px;
+  @media (--ml) {
+    @mixin flex-horizontal flex-start, center, nowrap;
+  }
+
+  & > .grid__item {
+    @mixin cell-responsive --ml, 16px;
+    @mixin cell-responsive --l, 32px;
+    @media (--ml) {
+      width: 50%;
+    }
+  }
+}
+
+.grid--no-gutter {
+  @mixin grid-gutter 0;
+
+  & .grid__item {
+    @mixin cell-responsive --xs, 0;
+  }
+}
+
+/*
+** Three-up
+*/
+
+.grid--2 {
+  & .grid__item {
+    @media (--ml) {
+      width: percentage(1/2);
+    }
+  }
+}
+
+.grid--3 {
+  & .grid__item {
+    @media (--ml) {
+      width: percentage(1/3);
+    }
+  }
+}
+
+/*
+** Four-up
+*/
+
+.grid--4 {
+  & .grid__item {
+    width: 50%;
+
+    @media (--ml) {
+      width: 25%;
+    }
+  }
+}
+
+.grid--products {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+.grid--home-list-collections {
+  @mixin flex-horizontal center, flex-start, nowrap;
+  margin: 0;
+}
+
+.grid--article {
+  @media (--ml) {
+    & .grid__item {
+      @mixin cell 33px;
+    }
+  }
+}

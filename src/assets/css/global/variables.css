@@ -1,0 +1,25 @@
+/* Global Styles */
+:root {
+  --font-sans: 'Mallory', Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Parameters */
+:root {
+  /* Transitions */
+  --transition-duration: 400ms;
+  --transition-timing: ease-in-out;
+
+  /* Layout */
+  --container-edge: 16px;
+  --container-edge-tablet: 16px;
+  --container-edge-desktop: 32px;
+  --container-edge-compact: 8px;
+  --container-edge-page: 18px;
+  --container-max-width: 1600px;
+  --field-height: 48px;
+  --custom-select-option-height: 38px;
+
+  /* Grid */
+  --grid-gutter-default: 16px;
+}
