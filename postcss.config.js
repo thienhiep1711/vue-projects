@@ -18,6 +18,7 @@ module.exports = {
     require('postcss-flexbugs-fixes'),
     require('postcss-selector-matches'),
     require('postcss-will-change'),
-    require('postcss-object-fit-images')
+    require('postcss-object-fit-images'),
+    require('autoprefixer')
   ]
 }
