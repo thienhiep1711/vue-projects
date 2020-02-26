@@ -1,17 +1,14 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
-  entry: ['./src/assets/js/main.js', './src/main.js', './src/assets/css/main.css'],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'assets/js/[name].js',
-    chunkFilename: '[name]-[id].js'
-  },
+  entry: [
+    './src/assets/js/main.js',
+    './src/main.js',
+    './src/assets/css/main.css'
+  ],
   module: {
     rules: [
       {
@@ -75,16 +72,11 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 8000
-  },
   resolve: {
     alias: {
-      'lib': path.resolve(__dirname, 'src/assets/js/lib'),
-      'modules': path.resolve(__dirname, 'src/modules'),
-      'fonts': path.join(__dirname, 'src/assets/fonts')
+      lib: path.resolve(__dirname, 'src/assets/js/lib'),
+      modules: path.resolve(__dirname, 'src/modules'),
+      fonts: path.join(__dirname, 'src/assets/fonts')
     }
   },
   plugins: [
