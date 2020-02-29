@@ -9,7 +9,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: `assets/js/[name].js?version=${Date.now()}`,
     chunkFilename: `[name]-[id].js?version=${Date.now()}`
   },
   optimization: {
