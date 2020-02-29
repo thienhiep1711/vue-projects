@@ -8,6 +8,10 @@ let app = express()
 
 app.use(express.static(publicPath))
 
+app.get('/', function(req, res){
+  res.redirect('/index.html');
+});
+
 app.listen(port, () => {
     console.log(`Server is up on ${port}`)
 })
