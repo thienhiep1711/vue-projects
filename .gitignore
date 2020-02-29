@@ -1,6 +1,5 @@
 node_modules
 *.map
-/dist
 jscs.js
 jshint.js
 .DS_Store
