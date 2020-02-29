@@ -5,4 +5,13 @@
 .test {
   color: var(--c-red);
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @type 12px 14px 1px;
+  width: percentage(1/2);
+
+  @media (--ml) {
+    color: blue;
+  }
 }
