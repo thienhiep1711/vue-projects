@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     require('postcss-easy-import'),
-    require('@solislab/postcss-type')({rootSize: '16px'}),
+    require('@solislab/postcss-type')({ rootSize: '16px' }),
     require('postcss-mixins'),
     require('postcss-percentage'),
     require('postcss-calc'),

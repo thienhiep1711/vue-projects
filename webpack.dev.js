@@ -22,7 +22,7 @@ module.exports = merge(common, {
       // all options are optional
       filename: 'assets/css/[name].css',
       chunkFilename: '[id].css',
-      ignoreOrder: false, // Enable to remove warnings about conflicting order
+      ignoreOrder: false // Enable to remove warnings about conflicting order
     })
   ]
 })

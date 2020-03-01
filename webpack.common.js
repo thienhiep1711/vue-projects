@@ -12,6 +12,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|vue|jsx)$/,
+        use: 'eslint-loader',
+        enforce: 'pre'
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader'
       },
@@ -28,17 +33,17 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: __dirname + '/dist/assets',
+              publicPath: path.resolve(`${__dirname}/dist/assets`),
               hmr: process.env.NODE_ENV === 'development',
-              reloadAll: true,
-            },
+              reloadAll: true
+            }
           },
           'css-loader',
           {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: `${__dirname}/postcss.config.js`,
+                path: `${__dirname}/postcss.config.js`
               }
             }
           }
@@ -52,21 +57,21 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'assets/images'
-            },
+            }
           }
         ]
       },
       {
-        test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+        test: /\.(eot|woff|woff2|svg|ttf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: 'assets/fonts/[name].[ext]',
-              publicPath: function(url) {
+              publicPath: function (url) {
                 return url.replace(/assets/, '..')
-              },
-            },
+              }
+            }
           }
         ]
       }
