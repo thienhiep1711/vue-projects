@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: [
@@ -21,6 +22,10 @@ module.exports = {
         use: 'babel-loader'
       },
       {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
         test: /\.html$/i,
         loader: 'html-loader',
         options: {
@@ -30,6 +35,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'vue-style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
@@ -81,7 +87,8 @@ module.exports = {
     alias: {
       lib: path.resolve(__dirname, 'src/assets/js/lib'),
       modules: path.resolve(__dirname, 'src/modules'),
-      fonts: path.join(__dirname, 'src/assets/fonts')
+      fonts: path.join(__dirname, 'src/assets/fonts'),
+      vue$: 'vue/dist/vue.esm.js'
     }
   },
   plugins: [
@@ -89,6 +96,7 @@ module.exports = {
       template: './src/layout/index.html',
       filename: 'index.html'
     }),
+    new VueLoaderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }),
     new webpack.optimize.OccurrenceOrderPlugin(),

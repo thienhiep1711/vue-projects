@@ -147,6 +147,8 @@ const parseOptions = (string, def = {}) => {
   return Object.assign({}, def, options)
 }
 
+const toPascalCase = name => name.charAt(0).toUpperCase() + name.slice(1).replace(/(-\w)/g, m => m[1].toUpperCase())
+
 export {
   curry,
   map,
@@ -165,5 +167,6 @@ export {
   partial,
   ifElse,
   identity,
-  returnTrue
+  returnTrue,
+  toPascalCase
 }
