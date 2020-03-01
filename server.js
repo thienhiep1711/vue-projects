@@ -1,16 +1,12 @@
 const path = require('path')
 const express = require('express')
 
-const publicPath = path.join(__dirname, '../dist')
+const publicPath = path.join(__dirname, '/dist')
 console.log(publicPath)
 const port = process.env.PORT || 8000
 let app = express()
 
 app.use(express.static(publicPath))
-
-app.get('/', function(req, res){
-  res.redirect('/index.html');
-});
 
 app.listen(port, () => {
     console.log(`Server is up on ${port}`)
