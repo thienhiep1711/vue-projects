@@ -9,3 +9,7 @@
     color: blue;
   }
 }
+
+.test__image {
+  @mixin aspect 2, 1
+}
