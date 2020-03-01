@@ -84,13 +84,6 @@ module.exports = {
       template: './src/layout/index.html',
       filename: 'index.html'
     }),
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // all options are optional
-      filename: 'assets/css/[name].css',
-      chunkFilename: '[id].css',
-      ignoreOrder: false, // Enable to remove warnings about conflicting order
-    }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }),
     new webpack.optimize.OccurrenceOrderPlugin(),

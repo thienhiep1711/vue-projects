@@ -1,8 +1,9 @@
 const merge = require('webpack-merge')
 const path = require('path')
+const common = require('./webpack.common')
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const common = require('./webpack.common')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -17,6 +18,13 @@ module.exports = merge(common, {
     minimizer: [new TerserPlugin()],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // all options are optional
+      filename: `assets/css/[name].css`,
+      chunkFilename: `[name]-[id].css`,
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
