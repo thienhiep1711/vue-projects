@@ -3,3 +3,4 @@ node_modules
 jscs.js
 jshint.js
 .DS_Store
+/dist
