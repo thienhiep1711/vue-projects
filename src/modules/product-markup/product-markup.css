@@ -64,6 +64,10 @@
   color: var(--c-red);
 }
 
+.product-button {
+  margin-top: 16px;
+}
+
 .topbar {
   margin-bottom: 8px;
 }
