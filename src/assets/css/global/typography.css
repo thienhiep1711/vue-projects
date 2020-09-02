@@ -195,3 +195,17 @@ p a {
 .paragraph-large {
   @type 16px 24px;
 }
+
+@define-mixin product-title {
+  @type 20px 24px;
+  text-transform: none;
+}
+
+@define-mixin product-price {
+  @type 24px 28px;
+  font-weight: 500;
+}
+
+@define-mixin sidebar-header {
+  font-weight: bold;
+}
