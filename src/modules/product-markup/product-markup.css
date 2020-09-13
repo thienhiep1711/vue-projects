@@ -21,6 +21,11 @@
   margin-bottom: 12px;
 }
 
+.sidebar__list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 .sidebar__item {
   padding: 5px 0;
   cursor: pointer;
@@ -99,6 +104,7 @@
   bottom: 0;
   top: 0;
   border-left: 1px solid var(--c-gray);
+  color: transparent;
 
   &:before,
   &:after {

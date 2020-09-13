@@ -59,6 +59,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "core-js": "^3.6.4",
     "express": "^4.17.1",
     "path": "^0.12.7",
