@@ -15,6 +15,7 @@
             v-for="(item, index) in items"
             :key="`title-${index}`"
             class="sidebar__item"
+            @click="handleFilter(item)"
           >
             {{ item }}
           </div>
@@ -34,6 +35,11 @@ export default {
     items: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    handleFilter (key) {
+      this.$store.dispatch('product/setFilter', key)
     }
   }
 }

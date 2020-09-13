@@ -6,46 +6,11 @@
         :categories="getCategories"
       />
       <div class="content">
-        <div class="topbar">
-          <div class="topbar__inner">
-            <div class="topbar__item">
-              <div class="topbar__text">
-                Jacket
-              </div>
-              <div class="topbar__remove">
-                x
-              </div>
-            </div>
-            <div class="topbar__item">
-              <div class="topbar__text">
-                Top
-              </div>
-              <div class="topbar__remove">
-                x
-              </div>
-            </div>
-            <div class="topbar__item">
-              <div class="topbar__text">
-                Sneaker
-              </div>
-              <div class="topbar__remove">
-                x
-              </div>
-            </div>
-            <div class="topbar__item">
-              <div class="topbar__text">
-                Jean
-              </div>
-              <div class="topbar__remove">
-                x
-              </div>
-            </div>
-          </div>
-        </div>
+        <product-topbar />
         <div class="products">
           <div class="grid grid--4">
             <product-item
-              v-for="product in products"
+              v-for="product in productFiltered"
               :key="product.id"
               :product="product"
             />
@@ -57,7 +22,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     products: {
@@ -67,21 +31,22 @@ export default {
   },
   computed: {
     getColors () {
-      const arr = []
-      this.products.map((product) => {
-        const isExits = arr.some(item => product.collection === item)
-        if (!isExits) {
-          arr.push(product.collection)
-        }
-      })
-      return arr
+      return this.createFilterByCollection('color', this.productFiltered)
     },
     getCategories () {
+      return this.createFilterByCollection('collection', this.productFiltered)
+    },
+    productFiltered () {
+      return this.products
+    }
+  },
+  methods: {
+    createFilterByCollection (key, products) {
       const arr = []
-      this.products.map((product) => {
-        const isExits = arr.some(item => product.color === item)
+      products.map((product) => {
+        const isExits = arr.some(item => product[key] === item)
         if (!isExits) {
-          arr.push(product.color)
+          arr.push(product[key])
         }
       })
       return arr
