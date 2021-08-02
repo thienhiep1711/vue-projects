@@ -5,6 +5,7 @@ import { getProp, pipe, map, toPascalCase } from 'lib/utils'
 import store from 'lib/store'
 import Vue from 'vue'
 import { initializeModuleForEl } from 'lib/init-modules'
+import { globalMixins } from 'lib/vue/mixins'
 
 /**
  * Contains cached vue component definitions
@@ -12,6 +13,8 @@ import { initializeModuleForEl } from 'lib/init-modules'
  */
 const vueCache = {}
 const vuexCache = {}
+
+Vue.mixin(globalMixins)
 
 const createMountedHook = (oldMounted) => function () {
   if (this.$el) {

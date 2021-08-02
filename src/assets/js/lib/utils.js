@@ -149,6 +149,19 @@ const parseOptions = (string, def = {}) => {
 
 const toPascalCase = name => name.charAt(0).toUpperCase() + name.slice(1).replace(/(-\w)/g, m => m[1].toUpperCase())
 
+const debounce = (callback, wait, context = this) => {
+  let timeout = null
+  let callbackArgs = null
+
+  const later = () => callback.apply(context, callbackArgs)
+
+  return function () {
+    callbackArgs = arguments
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+  }
+}
+
 export {
   curry,
   map,
@@ -168,5 +181,6 @@ export {
   ifElse,
   identity,
   returnTrue,
-  toPascalCase
+  toPascalCase,
+  debounce
 }
