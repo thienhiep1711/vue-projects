@@ -1,0 +1,4 @@
+.plp__scaffold {
+  border: 1px dashed var(--c-black);
+  padding: 20px;
+}
