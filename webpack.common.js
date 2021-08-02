@@ -6,6 +6,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: [
+    'regenerator-runtime/runtime.js',
     './src/assets/js/main.js',
     './src/main.js',
     './src/assets/css/main.css'
@@ -86,6 +87,7 @@ module.exports = {
   resolve: {
     alias: {
       lib: path.resolve(__dirname, 'src/assets/js/lib'),
+      config: path.resolve(__dirname, 'src/config'),
       modules: path.resolve(__dirname, 'src/modules'),
       fonts: path.join(__dirname, 'src/assets/fonts'),
       vue$: 'vue/dist/vue.esm.js'
